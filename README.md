@@ -11,3 +11,4 @@ Crear un comentario
   "body": "Este es un comentario de prueba sola"
 }
 * Para crear el comentario se agrega una busqueda del Usuario con FEIGN 
+* Para crear el comentario se agrega una busqueda del Post con FEIGN 

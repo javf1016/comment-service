@@ -10,3 +10,4 @@ Crear un comentario
   "authorId": 551,
   "body": "Este es un comentario de prueba sola"
 }
+* Para crear el comentario se agrega una busqueda del Usuario con FEIGN 

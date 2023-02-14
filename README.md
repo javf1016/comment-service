@@ -12,3 +12,4 @@ Crear un comentario
 }
 * Para crear el comentario se agrega una busqueda del Usuario con FEIGN 
 * Para crear el comentario se agrega una busqueda del Post con FEIGN 
+* Usa retry cuando el USER-SERVICE o POST-SERVICE estan abajo

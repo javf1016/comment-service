@@ -1,7 +1,9 @@
 package com.example.comment.service.impl;
 
+import com.example.comment.external.services.PostService;
 import com.example.comment.external.services.UserService;
 import com.example.comment.model.Comment;
+import com.example.comment.model.Post;
 import com.example.comment.model.StandardResponse;
 import com.example.comment.model.User;
 import com.example.comment.repository.CommentRepository;
@@ -25,11 +27,20 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private PostService postService;
+
     @Override
     public StandardResponse<Comment> addComment(Integer authorId, Integer postId, String body, HttpServletRequest request) {
         StandardResponse<User> user = userService.getUser(authorId);
         if(user.getData()==null){
-            return new StandardResponse<>(HttpStatus.NOT_FOUND.value(), "Get post by user dont success "+ user.getMessage(),
+            return new StandardResponse<>(HttpStatus.NOT_FOUND.value(), "Get User by userId dont success "+ user.getMessage(),
+                    request.getRequestURI(), null, null, null);
+        }
+
+        StandardResponse<Post> post = postService.getPost(postId);
+        if(post.getData()==null){
+            return new StandardResponse<>(HttpStatus.NOT_FOUND.value(), "Get post by postId dont success "+ post.getMessage(),
                     request.getRequestURI(), null, null, null);
         }
         LocalDate localDate = LocalDate.now();
